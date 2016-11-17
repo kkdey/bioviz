@@ -25,16 +25,15 @@ int counter = 0;
 
 public void setup(){
   
-  background(255);
   float startX = 0.75f*width;
   float startY = height/2;
   b = new Cell(startX, startY, diameter, scale, angle);
 }  
 
 public void draw(){
-  background(255);
+  background(0);
   textMode(CENTER);
-  fill(0,100);
+  fill(255,255);
   textSize(30);
   text("Cell Cycle Process", 0.7f*width/2, height/20, 500, 40);
   b.ring();
@@ -114,7 +113,7 @@ public void draw(){
     }else if (pangle > 5.6f && pangle < 5.9f){
       ellipse(circX, circY + 0.5f*pscale* pdiameter, 0.5f*pscale* pdiameter, 1.3f*pscale * pdiameter);
       ellipse(circX, circY - 0.5f*pscale* pdiameter, 0.5f*pscale* pdiameter, 1.3f*pscale * pdiameter);
-      fill(255,255);
+      fill(0,255);
       stroke(255,0);
       ellipse(circX, circY , 0.30f*pscale* pdiameter, 0.5f*pscale * pdiameter);
       fill(130,200,200,100);
@@ -402,8 +401,8 @@ public void draw(){
   
   public void ring(){
     float radius = pstartX - width/2;
-    fill(255);
-    stroke(100);
+    fill(0);
+    stroke(130, 0, 200, 100);
     strokeWeight(5);
     ellipseMode(CENTER);
     ellipse(width/2, height/2, radius, radius);
@@ -434,7 +433,7 @@ public void draw(){
     float circYY =  height/2 + 1.2f*radius * sin(pangle);
   
     if(counter >= 5 && counter <=100){
-      fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
@@ -443,7 +442,7 @@ public void draw(){
       text("The cell is at G0-rest phase", circXX, circYY, 80, 100);
     }
     else if(pangle > 1.0f && pangle < 2.0f){
-      fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
@@ -452,7 +451,7 @@ public void draw(){
       text("The cell is at G-1 growth phase", circXX, circYY, 80, 100);
     }
     else if(pangle > 2.0f && pangle < 3.5f){
-      fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
@@ -461,7 +460,7 @@ public void draw(){
       text("The cell is at S phase - chromosome duplicates", circXX, circYY, 80, 100);
     }
     else if(pangle > 3.5f && pangle < 4.5f){
-      fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
@@ -470,7 +469,8 @@ public void draw(){
       text("The cell is at G2 growth phase", circXX, circYY, 80, 100);
     }
     else if(pangle > 4.5f && pangle < 5.5f){
-      fill(255,127,80,100);
+     // fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
@@ -479,7 +479,7 @@ public void draw(){
       text("The cell is at mitosis phase - the nucleus segregates ", circXX, circYY, 80, 100);
     }
     else if(pangle > 5.5f && pangle < 6.2f){
-      fill(255,127,80,100);
+      fill(255,255,0,200);
       stroke(3);
       rect(circXX, circYY, 80, 80);
       stroke(0);
