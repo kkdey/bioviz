@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Humans in Motion</title>
+<script src="processing.min.js"></script>
+</head>
+<body>
+<h1>Processing.js Test</h1>
+<p>Humans moving together in a frame:</p>
+<canvas data-processing-sources="human_creator.pde"></canvas>
+</body>
+</html>
