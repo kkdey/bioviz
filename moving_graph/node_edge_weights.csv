@@ -1,0 +1,7 @@
+Name	Black	Police	Terrorism	Violence	Matter   Lives
+Black	0, 	0.05,	0,		0.05,		  0,       0.25
+Police	0,	0,	0.03,		0,		  0,       0
+Terrorism 0,	0,	0,		0.1,		  0,       0
+Violence  0.05,	0.05,	0,		0,		  0.1,     0
+Matter	  0,	0.05,	0.1,		0,		  0,       0
+Lives	  0.05,	0,	0,		0.02,		  0,       0.1

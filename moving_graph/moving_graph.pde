@@ -1,30 +1,49 @@
-int NUM_NODES = 5;
-Node graph;
-float[][] probMatrix = { {0, 0.05, 0, 0.05, 0.25}, 
-                         {0, 0, 0.2, 0, 0}, 
-                         {0,0.1,0,0.1, 0}, 
-                         {0.05, 0.05, 0, 0, 0},
-                         {0, 0.05, 0.1, 0, 0} };
-float[][] EdgeWeights = new float [NUM_NODES][NUM_NODES];                        
-String[] keywords = {"Black", "Police", "Terrorism", "Violence", "Lives"};
-color fillcol = color(0, 255, 255);
-float nodeX[] = new float [NUM_NODES];
-float nodeY[] = new float [NUM_NODES];
-float strength[] = {12, 6, 8, 3, 8};
-
-
-
+ Table table1;
+ Table table2;
+ float[][] probMatrix;
+ int NUM_NODES ;
+ Node graph;
+ float[] strength ;
+ String[] keywords;
+ float[][] EdgeWeights;                        
+ color fillcol = color(0, 255, 255);
+ float[] nodeX;
+ float[] nodeY;
 
 
 void setup(){
   size(800,600);
   frameRate(10);
   
+   table1 = loadTable("node_strength.csv");
+   table2 = loadTable("node_edge_weights.csv", "header");
+   NUM_NODES = table2.getRowCount();
+   strength = new float [table1.getRowCount()];
+   keywords = new String [table1.getRowCount()];
+   EdgeWeights = new float [NUM_NODES][NUM_NODES];
+   probMatrix = new float [NUM_NODES][NUM_NODES];
+   nodeX = new float [NUM_NODES];
+   nodeY = new float [NUM_NODES];
+   
+  for(int i=0; i < table2.getRowCount(); i++){
+   for(int j=0; j < table2.getColumnCount(); j++){
+      probMatrix[i][j] = table2.getFloat(i,j);
+   }
+ }
+ 
+ for(int i=0; i < table1.getRowCount(); i++){
+     strength[i] = table1.getFloat(i,1);
+     keywords[i] = table1.getString(i,0);
+ }
+ 
+ 
+  
   for(int i=0; i < NUM_NODES; i++){
     nodeX[i] = random(0, width );
     nodeY[i] = random(0, height); 
   }
   
+  println(NUM_NODES);
   for(int i=0; i < NUM_NODES; i++){
     for(int j=0; j < NUM_NODES; j++){
       EdgeWeights[i][j] = 100*probMatrix[i][j];
@@ -45,8 +64,7 @@ void draw(){
 }
 
 
-  void mouseDragged() 
-{
+  void mouseDragged() {
   int minIndex=0;
   float[] dist = new float [NUM_NODES];
 
